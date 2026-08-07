@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vin & Sumiko — Chapter 3 💘</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold:#f4d4a8; --gold-dim:rgba(244,212,168,0.15); --gold-glow:rgba(244,212,168,0.35);
+  --amber:#d4a574; --rose:#f49ec4; --rose-dim:rgba(244,158,196,0.15); --rose-glow:rgba(244,158,196,0.35);
+  --teal:#7dd3c8; --teal-dim:rgba(125,211,200,0.15); --teal-glow:rgba(125,211,200,0.35);
+  --rust:#c67c4e; --text:#f0e6f6; --muted:#b8a0cc;
+  --bg:#0a0810; --card:rgba(255,255,255,0.04);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden;font-weight:300;}
+
+/* AUTUMN BG */
+.autumn-bg{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background: radial-gradient(ellipse at 30% 70%, rgba(196,124,78,0.4) 0%, transparent 60%),
+              radial-gradient(ellipse at 70% 30%, rgba(122,100,80,0.3) 0%, transparent 60%),
+              linear-gradient(180deg, #0a0810 0%, #1a0f18 40%, #2a1820 100%);
+}
+
+.stars3,.floating-leaves,.floating-hearts3{position:fixed;inset:0;pointer-events:none;z-index:0;}
+.star3{position:absolute;border-radius:50%;background:#fff;animation:tw3 var(--d,3s) infinite ease-in-out alternate;}
+@keyframes tw3{from{opacity:0.05;transform:scale(0.7)}to{opacity:var(--o,0.8);transform:scale(1.2)}}
+
+.leaf{position:absolute;animation:fallingLeaf var(--fd,8s) linear infinite;opacity:0;}
+@keyframes fallingLeaf{0%{transform:translateY(0) rotateZ(0deg);opacity:0}5%{opacity:0.6}95%{opacity:0.2}100%{transform:translateY(100vh) rotateZ(360deg);opacity:0}}
+
+.fh3{position:absolute;animation:popFlower var(--fd,2.5s) cubic-bezier(0.34,1.56,0.64,1) forwards;opacity:0;}
+@keyframes popFlower{0%{transform:translateY(0) scale(0);opacity:1}100%{transform:translateY(-80px) scale(1);opacity:0}}
+
+section{position:relative;z-index:1;}
+
+/* BACK BUTTON */
+.back-btn{
+  position:fixed;top:clamp(0.8rem,2vw,1.2rem);left:clamp(0.8rem,2vw,1.2rem);
+  z-index:100;
+  background:rgba(255,255,255,0.08);
+  border:1px solid var(--gold-glow);
+  color:var(--gold);
+  font-family:'Jost',sans-serif;
+  font-size:clamp(10px,2.5vw,12px);
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  padding:8px 16px;
+  border-radius:100px;
+  text-decoration:none;
+  transition:background .3s,border-color .3s;
+  backdrop-filter:blur(8px);
+}
+.back-btn:hover{background:rgba(244,212,168,0.15);border-color:var(--gold);}
+
+/* HERO */
+.hero{
+  min-height:100svh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;text-align:center;
+  padding:clamp(4rem,10vw,6rem) clamp(1.2rem,5vw,3rem) clamp(2rem,5vw,3rem);
+}
+.badge3{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--gold-glow);border-radius:100px;
+  padding:7px 22px;font-size:clamp(10px,2.5vw,12px);font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:clamp(1.5rem,4vw,2.5rem);animation:fadeUp 1s ease 0.2s both;
+}
+.hero-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(3rem,12vw,8rem);
+  font-weight:400;line-height:1;color:#fff;
+  animation:fadeUp 1s ease 0.5s both;letter-spacing:-0.02em;
+}
+.hero-title .amp{font-style:italic;color:var(--rose);}
+.hero-tagline{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,3vw,1.4rem);font-style:italic;font-weight:300;
+  color:var(--gold);margin-top:clamp(0.8rem,2vw,1.2rem);
+  animation:fadeUp 1s ease 0.8s both;
+}
+.hero-counter{
+  margin-top:clamp(1.5rem,4vw,2.5rem);
+  display:flex;gap:clamp(1rem,4vw,2.5rem);
+  animation:fadeUp 1s ease 1.2s both;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.counter-item{text-align:center;}
+.counter-num{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(2rem,8vw,4rem);color:var(--rose);line-height:1;
+}
+.counter-label{font-size:clamp(9px,2vw,11px);letter-spacing:0.15em;text-transform:uppercase;color:var(--muted);margin-top:4px;}
+.scroll-hint3{
+  margin-top:clamp(2rem,5vw,3rem);display:flex;flex-direction:column;
+  align-items:center;gap:6px;color:rgba(255,255,255,0.2);
+  font-size:10px;letter-spacing:0.15em;text-transform:uppercase;
+  animation:fadeUp 1s ease 1.5s both;
+}
+.scroll-line3{width:1px;height:36px;background:linear-gradient(to bottom,var(--gold),transparent);animation:pulse 2s ease-in-out infinite;}
+@keyframes pulse{0%,100%{opacity:0.3}50%{opacity:1}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* LAYOUT */
+.wrap{max-width:min(820px,94vw);margin:0 auto;padding:clamp(3rem,8vw,6rem) clamp(1rem,4vw,2rem);}
+.sec-eyebrow{font-family:'Jost',sans-serif;font-size:clamp(9px,2vw,11px);font-weight:500;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);opacity:0.8;margin-bottom:0.8rem;}
+.sec-title{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,6vw,3rem);font-weight:400;color:#fff;line-height:1.1;margin-bottom:0.5rem;text-shadow:0 0 18px rgba(244,212,168,0.16);}
+.sec-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(0.9rem,2.5vw,1.1rem);font-style:italic;color:var(--amber);margin-bottom:clamp(2rem,5vw,3rem);}
+.section-divider{display:block;text-align:center;color:var(--rose);font-size:clamp(1.1rem,3vw,1.4rem);margin:0 auto clamp(1rem,3vw,1.5rem);animation:pulse 2s ease-in-out infinite;}
+
+/* MESSAGE BOX */
+.msg-box{
+  background:var(--card);
+  border:1px solid var(--gold-dim);
+  border-radius:clamp(12px,3vw,20px);
+  padding:clamp(1.5rem,5vw,3.5rem);
+  position:relative;overflow:hidden;
+  box-shadow:0 20px 45px rgba(0,0,0,0.22);
+  backdrop-filter:blur(8px);
+}
+.msg-box::before{
+  content:'\2665';
+  font-size:clamp(4rem,12vw,8rem);
+  position:absolute;top:1rem;right:1.5rem;
+  color:rgba(244,212,168,0.08);pointer-events:none;
+  font-family:sans-serif;line-height:1;
+}
+.msg-box::after{
+  content:'';
+  position:absolute;
+  inset:1px;
+  border:1px solid rgba(244,212,168,0.08);
+  border-radius:inherit;
+  pointer-events:none;
+}
+.msg-body{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,2.8vw,1.15rem);
+  line-height:1.9;color:#d4c0e2;font-weight:400;
+}
+.msg-body p{margin-bottom:1.1rem;}
+.msg-sig{margin-top:1.8rem;font-family:'DM Serif Display',serif;font-style:italic;color:var(--rose);font-size:clamp(1rem,3vw,1.2rem);}
+.poem-box{
+  background:linear-gradient(135deg, rgba(244,158,196,0.12), rgba(125,211,200,0.12));
+  border:1px solid rgba(244,212,168,0.25);
+  border-radius:clamp(14px,3vw,22px);
+  padding:clamp(1.4rem,4vw,2.4rem);
+  box-shadow:0 10px 30px rgba(0,0,0,0.18);
+}
+.poem-title{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(1.1rem,3vw,1.4rem);
+  color:var(--gold);
+  margin-bottom:1rem;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+}
+.poem-lines{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,2.6vw,1.2rem);
+  line-height:1.8;
+  color:#e9d7f3;
+  white-space:pre-line;
+}
+.poem-lines .highlight{color:var(--rose);font-style:italic;font-weight:600;}
+/* PHOTO GRID */
+.photo-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(0.8rem,2vw,1.4rem);
+  grid-auto-flow:dense;
+}
+.photo-card{
+  background:var(--card);
+  border:1px solid var(--gold-dim);
+  border-radius:clamp(10px,2.5vw,16px);
+  overflow:hidden;
+  transition:transform .3s,border-color .3s;
+  cursor:pointer;
+  min-height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:rgba(255,255,255,0.3);
+  font-size:clamp(12px,2vw,14px);
+  font-style:italic;
+  box-shadow:0 10px 25px rgba(0,0,0,0.18);
+}
+.photo-card:hover{transform:translateY(-4px);border-color:var(--gold-glow);box-shadow:0 16px 35px rgba(0,0,0,0.28);}
+.photo-card img{width:100%;height:100%;object-fit:cover;display:block;}
+.photo-card--wide{grid-column:span 2;}
+
+@media (max-width: 700px){
+  .photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .photo-card--wide{grid-column:span 2;}
+}
+
+@media (max-width: 480px){
+  .photo-grid{grid-template-columns:1fr;}
+  .photo-card--wide{grid-column:span 1;}
+}
+
+/* BUCKETLIST */
+.bucket-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));
+  gap:clamp(0.8rem,2vw,1.2rem);
+}
+.bucket-card{
+  background:var(--card);
+  border:1px solid var(--rose-dim);
+  border-radius:clamp(10px,2vw,14px);
+  padding:clamp(1.1rem,3vw,1.6rem);
+  transition:border-color .3s,background .3s,transform .3s;
+  box-shadow:0 10px 24px rgba(0,0,0,0.16);
+}
+.bucket-card:hover{border-color:var(--rose-glow);background:rgba(244,158,196,0.07);transform:translateY(-3px);}
+.bucket-num{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(1.8rem,5vw,2.5rem);
+  color:rgba(244,212,168,0.18);
+  line-height:1;
+  margin-bottom:0.5rem;
+}
+.bucket-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(0.95rem,2.5vw,1.05rem);
+  color:#c8b0dc;
+  line-height:1.7;
+}
+
+/* LOVE LANGUAGE */
+.lang-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(260px,100%),1fr));
+  gap:clamp(1rem,3vw,1.5rem);
+}
+.lang-card{
+  border-radius:clamp(12px,3vw,20px);
+  overflow:hidden;
+  border:1px solid var(--teal-dim);
+  transition:transform .3s,border-color .3s;
+  box-shadow:0 12px 28px rgba(0,0,0,0.18);
+}
+.lang-card:hover{transform:translateY(-4px);border-color:var(--teal-glow);box-shadow:0 16px 34px rgba(0,0,0,0.25);}
+.lang-card img{
+  width:100%;
+  height:clamp(220px,35vw,320px);
+  object-fit:cover;
+  display:block;
+}
+.lang-label{
+  text-align:center;
+  margin-top:1rem;
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(1rem,3vw,1.2rem);
+  font-style:italic;
+  color:var(--teal);
+}
+.lang-desc{
+  text-align:center;
+  margin-top:0.5rem;
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(0.85rem,2vw,0.95rem);
+  color:var(--muted);
+  font-style:italic;
+}
+
+/* MUSIC PLAYER */
+.music-player3 {
+  position: fixed; top: clamp(0.8rem,2vw,1.2rem); right: clamp(0.8rem,2vw,1.2rem);
+  z-index: 1000;
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(10,8,16,0.85);
+  border: 1px solid rgba(244,212,168,0.25);
+  border-radius: 100px;
+  padding: 8px 16px 8px 10px;
+  backdrop-filter: blur(12px);
+  transition: border-color 0.3s;
+}
+.music-player3:hover { border-color: rgba(244,212,168,0.5); }
+.music-play-btn3 {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: rgba(244,212,168,0.15);
+  border: 1px solid rgba(244,212,168,0.4);
+  color: #f4d4a8; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; transition: background 0.3s;
+  flex-shrink: 0;
+}
+.music-play-btn3:hover { background: rgba(244,212,168,0.28); }
+.music-info3 { display: flex; flex-direction: column; }
+.music-title3 { font-family:'Jost',sans-serif; font-size: 11px; color: #f9c6e0; letter-spacing:0.08em; white-space:nowrap; }
+.music-artist3 { font-family:'Jost',sans-serif; font-size: 10px; color: rgba(244,212,168,0.5); letter-spacing:0.06em; }
+.music-bars3 { display:flex; align-items:flex-end; gap:2px; height:16px; margin-left:4px; }
+.music-bar3 { width:3px; background:rgba(244,212,168,0.5); border-radius:2px; animation:barAnim3 var(--s,0.8s) ease-in-out infinite alternate; }
+.music-bar3:nth-child(1){--s:0.6s;height:6px;}
+.music-bar3:nth-child(2){--s:0.9s;height:12px;}
+.music-bar3:nth-child(3){--s:0.7s;height:8px;}
+.music-bar3:nth-child(4){--s:1.1s;height:14px;}
+.music-bar3:nth-child(5){--s:0.8s;height:6px;}
+@keyframes barAnim3{from{transform:scaleY(0.3)}to{transform:scaleY(1)}}
+.music-bars3.paused .music-bar3 { animation-play-state: paused; }
+.music-source3 {
+  position: fixed;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  pointer-events: none;
+}
+.music-source3 iframe { border: 0; }
+
+/* GROWTH GRID */
+.growth-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));
+  gap:clamp(0.8rem,2vw,1.4rem);
+}
+.growth-card{
+  background:var(--card);
+  border:1px solid var(--gold-dim);
+  border-radius:clamp(10px,2.5vw,16px);
+  overflow:hidden;
+  transition:transform .3s,border-color .3s;
+  cursor:pointer;
+  aspect-ratio:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:rgba(255,255,255,0.3);
+  font-size:clamp(12px,2vw,14px);
+  font-style:italic;
+}
+.growth-card:hover{transform:scale(1.02);border-color:var(--gold-glow);}
+.growth-card img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:clamp(3rem,8vw,6rem) clamp(1rem,4vw,2rem) clamp(2.5rem,6vw,4rem);
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.foot-heart{
+  font-size:clamp(2rem,6vw,3rem);
+  animation:hb 1.4s ease-in-out infinite;
+  display:block;
+  margin-bottom:1.2rem;
+}
+@keyframes hb{0%,100%{transform:scale(1)}14%{transform:scale(1.2)}28%{transform:scale(1)}42%{transform:scale(1.15)}56%{transform:scale(1)}}
+.foot-msg{
+  font-family:'DM Serif Display',serif;
+  font-size:clamp(1.2rem,4vw,1.6rem);
+  font-style:italic;
+  color:var(--gold);
+  margin-bottom:0.7rem;
+}
+.foot-sub{
+  font-size:clamp(0.72rem,2vw,0.82rem);
+  color:rgba(255,255,255,0.2);
+  letter-spacing:0.12em;
+}
+
+/* LIGHTBOX */
+.lb{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.93);
+  z-index:9999;
+  align-items:center;
+  justify-content:center;
+  padding:1rem;
+}
+.lb.on{display:flex;}
+.lb img{max-width:92vw;max-height:92dvh;object-fit:contain;border-radius:8px;}
+.lb-close{
+  position:fixed;
+  top:1rem;
+  right:1rem;
+  background:rgba(255,255,255,0.1);
+  border:none;
+  color:#fff;
+  font-size:1.4rem;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:sans-serif;
+  transition:background .2s;
+}
+.lb-close:hover{background:rgba(255,255,255,0.22);}
+
+@media(max-width:768px){
+  .hero-counter{flex-direction:column;gap:1rem;}
+  .music-player-ch3{flex-direction:column;}
+  .playlist-songs{align-items:center;}
+}
+</style>
+</head>
+<body>
+
+<div class="autumn-bg"></div>
+<div class="stars3" id="stars3"></div>
+<div class="floating-leaves" id="leaves"></div>
+<div class="floating-hearts3" id="popFlowers"></div>
+
+<a href="index.html" class="back-btn">← Back</a>
+
+<!-- MUSIC PLAYER -->
+<div class="music-player3" id="musicPlayer3">
+  <button class="music-play-btn3" id="playBtn3" type="button" aria-label="Play Can't Help Falling in Love" aria-pressed="false" onclick="toggleMusic3()">▶</button>
+  <div class="music-info3">
+    <span class="music-title3" id="songTitle3">Can't Help Falling in Love</span>
+    <span class="music-artist3" id="songArtist3">Elvis Presley</span>
+  </div>
+  <div class="music-bars3 paused" id="musicBars3">
+    <div class="music-bar3"></div>
+    <div class="music-bar3"></div>
+    <div class="music-bar3"></div>
+    <div class="music-bar3"></div>
+    <div class="music-bar3"></div>
+  </div>
+</div>
+<div class="music-source3" aria-hidden="true">
+  <div id="youtubePlayer3"></div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="badge3">✨ Chapter 3 ✨</span>
+  <h1 class="hero-title">Vin <span class="amp">&</span> Sumiko</h1>
+  <p class="hero-tagline">Our Forever Story Continues</p>
+  
+  <div class="hero-counter">
+    <div class="counter-item">
+      <div class="counter-num">101</div>
+      <div class="counter-label">Days Together</div>
+    </div>
+    <div class="counter-item">
+      <div class="counter-num">∞</div>
+      <div class="counter-label">Days to Go</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint3">
+    <span>Scroll to continue</span>
+    <div class="scroll-line3"></div>
+  </div>
+</section>
+
+<!-- MESSAGE -->
+<section class="wrap">
+  <div class="sec-eyebrow">💌 A Message</div>
+  <h2 class="sec-title">From My Heart to Yours</h2>
+  <div class="msg-box">
+    <p class="msg-body">
+      <p>Its been a long, long time with the love of my life, me and my preciosa home, We've gone through many goods and bads but still we are together and I hope we keep our promises and our love and stay together forever till eternity,</p>
+      <p class="msg-sig">Te Amodoro Muchisisisisisisisisisisisisisisisimo Mas <3</p>
+    </p>
+  </div>
+</section>
+
+<div class="section-divider">♡</div>
+
+<!-- FUNNY MOMENTS -->
+<section class="wrap">
+  <div class="sec-eyebrow">😂 Funny Moments</div>
+  <h2 class="sec-title">Our Laughter</h2>
+  <p class="sec-sub">The moments that made us smile till our cheeks hurt</p>
+  <div class="photo-grid" id="funnyGallery">
+    <div class="photo-card photo-card--wide" onclick="openPhotoGallery('../s/note-03.jpg')"><img src="../s/note-03.jpg" alt="Funny memory 3"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-04.jpg')"><img src="../s/note-04.jpg" alt="Funny memory 4"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-015.jpg')"><img src="../s/note-015.jpg" alt="Funny memory 15"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-016.jpg')"><img src="../s/note-016.jpg" alt="Funny memory 16"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-033.jpg')"><img src="../s/note-033.jpg" alt="Funny memory 33"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-038.jpg')"><img src="../s/note-038.jpg" alt="Funny memory 38"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-039.jpg')"><img src="../s/note-039.jpg" alt="Funny memory 39"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-046.jpg')"><img src="../s/note-046.jpg" alt="Funny memory 46"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-048.jpg')"><img src="../s/note-048.jpg" alt="Funny memory 48"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-049.jpg')"><img src="../s/note-049.jpg" alt="Funny memory 49"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-052.jpg')"><img src="../s/note-052.jpg" alt="Funny memory 52"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-053.jpg')"><img src="../s/note-053.jpg" alt="Funny memory 53"></div>
+  </div>
+</section>
+
+<!-- SPECIAL MOMENTS -->
+<section class="wrap">
+  <div class="sec-eyebrow">✨ June 20</div>
+  <h2 class="sec-title">A Really Remembering Day</h2>
+  <div class="msg-box">
+    <p class="msg-body">
+      <p>June 20 was a really remembering day for me with you my love that day was really beautiful the things that you wrote for me, seriously really really heartwarming, my heart was filled with the warmth of your love that day, though every day is better if its with you but that day has a different memory,</p>
+      <p class="msg-sig">Te amoooo</p>
+    </p>
+  </div>
+  <div class="photo-grid" style="margin-top: clamp(2rem,5vw,3rem);" id="juneGallery">
+    <div class="photo-card" onclick="openPhotoGallery('../s/j3.jpeg')"><img src="../s/j3.jpeg" alt="Remembering day 3"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/j4.jpeg')"><img src="../s/j4.jpeg" alt="Remembering day 4"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/j5.jpeg')"><img src="../s/j5.jpeg" alt="Remembering day 5"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/j6.jpeg')"><img src="../s/j6.jpeg" alt="Remembering day 6"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/j7.jpeg')"><img src="../s/j7.jpeg" alt="Remembering day 7"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/j8.jpeg')"><img src="../s/j8.jpeg" alt="Remembering day 8"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/j9.jpeg')"><img src="../s/j9.jpeg" alt="Remembering day 9"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/j10.jpeg')"><img src="../s/j10.jpeg" alt="Remembering day 10"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/j11.jpeg')"><img src="../s/j11.jpeg" alt="Remembering day 11"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/j12.jpeg')"><img src="../s/j12.jpeg" alt="Remembering day 12"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/j13.jpeg')"><img src="../s/j13.jpeg" alt="Remembering day 13"></div>
+  </div>
+</section>
+
+<!-- OUR BEAUTIFUL NOTES TOGETHER -->
+<section class="wrap">
+  <div class="sec-eyebrow">💙💗 Our Beautiful Notes</div>
+  <h2 class="sec-title">Our Beautiful Notes Together</h2>
+  <p class="sec-sub">Your blue, mine pink</p>
+  <div class="photo-grid" style="margin-top: clamp(1rem,3vw,1.5rem);">
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-adorable-01.jpg')"><img src="../s/note-adorable-01.jpg" alt="Adorable note"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-cute-01.jpg')"><img src="../s/note-cute-01.jpg" alt="Cute note"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-heart-01.jpg')"><img src="../s/note-heart-01.jpg" alt="Heart note"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-journey-01.jpg')"><img src="../s/note-journey-01.jpg" alt="Journey note"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-love-01.jpg')"><img src="../s/note-love-01.jpg" alt="Love note"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-memory-01.jpg')"><img src="../s/note-memory-01.jpg" alt="Memory note"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-quote-01.jpg')"><img src="../s/note-quote-01.jpg" alt="Quote note"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-romance-01.jpg')"><img src="../s/note-romance-01.jpg" alt="Romance note"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-sweet-01.jpg')"><img src="../s/note-sweet-01.jpg" alt="Sweet note"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/notea.jpeg')"><img src="../s/notea.jpeg" alt="Note A"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/noteb.jpeg')"><img src="../s/noteb.jpeg" alt="Note B"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/notec.jpeg')"><img src="../s/notec.jpeg" alt="Note C"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/notex.jpeg')"><img src="../s/notex.jpeg" alt="Note X"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/notey.jpeg')"><img src="../s/notey.jpeg" alt="Note Y"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/notez.jpeg')"><img src="../s/notez.jpeg" alt="Note Z"></div>
+  </div>
+</section>
+
+<!-- POEM -->
+<section class="wrap">
+  <div class="sec-eyebrow">✒️ A Poem</div>
+  <h2 class="sec-title">For My Beloved Wawita</h2>
+  <div class="poem-box">
+    <div class="poem-title">The Beautiful Valley, Full of Stars</div>
+    <div class="poem-lines">Rushing meteor showers,
+Every hour,
+All I will always see in their beauty,
+Is you,
+
+Your eternal beauty,
+Is like a sunshine in my life,
+My heaven,
+Is all you,
+You are my Goddess,
+and I'm heavily devoted to you,
+Amor de mi vida,
+
+The presence of yours,
+in my life,
+always make it beautiful like clouds shining in the sunny sky,
+Embracing their purity and upholding divine beauty,
+No one can be compared to my cutest wawita,
+Cuz she's the best,
+and perfect,
+And will always be in my life,
+My beautiful wife,
+My preciosa treasure,
+My melancholy blues,
+<span class="highlight">Te Amoooo</span></div>
+  </div>
+</section>
+
+<!-- BUCKET LIST -->
+<section class="wrap">
+  <div class="sec-eyebrow">🎯 Our Dreams</div>
+  <h2 class="sec-title">Our Bucket List</h2>
+  <p class="sec-sub">Things we want to do together, forever and always</p>
+  <div class="bucket-grid">
+    <div class="bucket-card">
+      <div class="bucket-num">1</div>
+      <div class="bucket-text">Dance with you in the rain</div>
+    </div>
+    <div class="bucket-card">
+      <div class="bucket-num">2</div>
+      <div class="bucket-text">Watch sunset on a beach with you holding hands and your head on my shoulder :3</div>
+    </div>
+    <div class="bucket-card">
+      <div class="bucket-num">3</div>
+      <div class="bucket-text">Have a family with you</div>
+    </div>
+    <div class="bucket-card">
+      <div class="bucket-num">4</div>
+      <div class="bucket-text">Go out every weekend and enjoy my precious time with you</div>
+    </div>
+    <div class="bucket-card">
+      <div class="bucket-num">5</div>
+      <div class="bucket-text">Give you all the love that you crave from me each and everyday by being on your side in your city</div>
+    </div>
+    <div class="bucket-card">
+      <div class="bucket-num">6</div>
+      <div class="bucket-text">Take care of our beautiful cat family with you :)</div>
+    </div>
+    <div class="bucket-card">
+      <div class="bucket-num">7</div>
+      <div class="bucket-text">Explore the whole world with you</div>
+    </div>
+    <div class="bucket-card">
+      <div class="bucket-num">8</div>
+      <div class="bucket-text">Go to the temple of love with the love of my life</div>
+    </div>
+    <div class="bucket-card">
+      <div class="bucket-num">9</div>
+      <div class="bucket-text">Cook together to get dirty.</div>
+    </div>
+  </div>
+  <div style="text-align:center; margin-top: clamp(1.5rem,3vw,2rem); font-family:'DM Serif Display',serif; font-style:italic; color:var(--rose); font-size: clamp(1rem,3vw,1.2rem);">
+    Te amo muchooo
+  </div>
+</section>
+
+<!-- LOVE LANGUAGES -->
+<section class="wrap">
+  <div class="sec-eyebrow">💕 How We Love</div>
+  <h2 class="sec-title">Our Love Languages</h2>
+  <p class="sec-sub">The ways we show love to each other</p>
+  
+  <div style="margin-bottom: clamp(2rem,5vw,3rem);">
+    <h3 class="sec-title" style="font-size: clamp(1.2rem,4vw,1.8rem); margin-bottom: 1rem; color: var(--teal);">Your Love Language</h3>
+    <div class="lang-card" style="max-width: 400px; margin: 0 auto;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0;">
+        <img src="../s/note-03.jpg" alt="Your love language 1" onclick="openPhotoGallery('../s/note-03.jpg')" style="width:100%; height:220px; object-fit:cover; display:block;">
+        <img src="../s/j14.jpeg" alt="Your love language 2" onclick="openPhotoGallery('../s/j14.jpeg')" style="width:100%; height:220px; object-fit:cover; display:block;">
+      </div>
+      <p class="lang-desc">Annoying me and possessive behaviour towards me is all i loveee :p ykk</p>
+    </div>
+  </div>
+
+  <div>
+    <h3 class="sec-title" style="font-size: clamp(1.2rem,4vw,1.8rem); margin-bottom: 1rem; color: var(--rose);">My Love Language</h3>
+    <div class="lang-card" style="max-width: 400px; margin: 0 auto;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:0;">
+        <img src="../s/j15.jpeg" alt="My love language 1" onclick="openPhotoGallery('../s/j15.jpeg')" style="width:100%; height:220px; object-fit:cover; display:block;">
+        <img src="../s/note-060.jpg" alt="My love language 2" onclick="openPhotoGallery('../s/note-060.jpg')" style="width:100%; height:220px; object-fit:cover; display:block;">
+      </div>
+      <p class="lang-desc">Both annoying and clinging to you like a babyyyy</p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- GROWTH JOURNEY -->
+<section class="wrap">
+  <div class="sec-eyebrow">🌱 Our Growth</div>
+  <h2 class="sec-title">Growth Journey</h2>
+  <p class="sec-sub">How we've grown together, day by day</p>
+  <div class="growth-grid" id="growthGallery">
+    <div class="growth-card" onclick="openPhotoGallery('../s/download (1).png')"><img src="../s/download (1).png" alt="Growth memory 1"></div>
+    <div class="growth-card" onclick="openPhotoGallery('../s/download.png')"><img src="../s/download.png" alt="Growth memory 2"></div>
+    <div class="growth-card" onclick="openPhotoGallery('../s/note-024.jpg')"><img src="../s/note-024.jpg" alt="Growth memory 3"></div>
+    <div class="growth-card" onclick="openPhotoGallery('../s/note-013.jpg')"><img src="../s/note-013.jpg" alt="Growth memory 4"></div>
+  </div>
+</section>
+
+<!-- MY BEAUTIFUL ESPOSA -->
+<section class="wrap">
+  <div class="sec-eyebrow">💗 My Beautiful Esposa</div>
+  <h2 class="sec-title">My Beautiful Esposa</h2>
+  <div class="photo-grid" style="margin-top: clamp(1rem,3vw,1.5rem);">
+    <div class="photo-card" onclick="openPhotoGallery('../s/happy-home-01.jpg')"><img src="../s/happy-home-01.jpg" alt="Happy home"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/happy-hope-01.jpg')"><img src="../s/happy-hope-01.jpg" alt="Happy hope"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/miku.jpeg')"><img src="../s/miku.jpeg" alt="Miku"></div>
+  </div>
+  <div style="text-align:center; margin-top: clamp(1rem,3vw,1.5rem); font-family:'DM Serif Display',serif; font-style:italic; color:var(--rose); font-size: clamp(1rem,3vw,1.2rem);">
+    I love you 3000(more than it)
+  </div>
+</section>
+
+<!-- US AS CHILDREN -->
+<section class="wrap">
+  <div class="sec-eyebrow">🌼 Us As Children</div>
+  <h2 class="sec-title">Us As Children</h2>
+  <div class="photo-grid" style="margin-top: clamp(1rem,3vw,1.5rem);">
+    <div class="photo-card photo-card--wide" onclick="openPhotoGallery('../s/happy-sunset-01.jpg')"><img src="../s/happy-sunset-01.jpg" alt="Us as children"></div>
+  </div>
+</section>
+
+<!-- OUR BEAUTIFUL CHILDREN -->
+<section class="wrap">
+  <div class="sec-eyebrow">👶 Our Beautiful Children</div>
+  <h2 class="sec-title">Our Beautiful Children</h2>
+  <div class="photo-grid" style="margin-top: clamp(1rem,3vw,1.5rem);">
+    <div class="photo-card" onclick="openPhotoGallery('../s/uss.jpeg')"><img src="../s/uss.jpeg" alt="Our beautiful children 1"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/happy-morning-01.jpg')"><img src="../s/happy-morning-01.jpg" alt="Our beautiful children 2"></div>
+  </div>
+</section>
+
+<!-- A LETTER THAT YOU WROTE FOR ME -->
+<section class="wrap">
+  <div class="sec-eyebrow">💌 A Letter</div>
+  <h2 class="sec-title">A Letter That You Wrote For Me</h2>
+  <div class="photo-grid" style="margin-top: clamp(1rem,3vw,1.5rem);">
+    <div class="photo-card" onclick="openPhotoGallery('../s/j1.jpeg')"><img src="../s/j1.jpeg" alt="Letter for me"></div>
+  </div>
+</section>
+
+<!-- I LOVE YOUR DRAWINGS -->
+<section class="wrap">
+  <div class="sec-eyebrow">🎨 Your Art</div>
+  <h2 class="sec-title">I Love Your Drawings :3</h2>
+  <div class="photo-grid" style="margin-top: clamp(1rem,3vw,1.5rem);">
+    <div class="photo-card" onclick="openPhotoGallery('../s/drawing-angel-01.jpg')"><img src="../s/drawing-angel-01.jpg" alt="Angel drawing"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/drawing-beauty-01.jpg')"><img src="../s/drawing-beauty-01.jpg" alt="Beauty drawing"></div>
+  </div>
+  <div style="text-align:center; margin-top: clamp(1rem,3vw,1.5rem); font-family:'DM Serif Display',serif; font-style:italic; color:var(--rose); font-size: clamp(1rem,3vw,1.2rem);">
+    Te amo
+  </div>
+</section>
+
+<div class="section-divider">♡</div>
+
+<!-- FINAL MESSAGE -->
+<section class="wrap">
+  <div class="sec-eyebrow">💞 A Final Message</div>
+  <h2 class="sec-title">For My Dearest Love</h2>
+  <div class="msg-box">
+    <p class="msg-body">
+      <p>My dearest love,</p>
+      <p>This month of june we saw goods and bads together but I'm happy that we are still standing together with each other as we promised in love that we will never give up on each other no matter what happens, sometimes I might mess up things and for that I'm really sorry but I will always keep trying my best for my beloved and one and only amor de mi vida, I hope we stay together forever make many more memories never let anything come in between us and marry and have a beautiful family together, I will try my best for that and will always love you forever, the same cuz thats how I will always feel for you loveee, Thanks for coming in my life</p>
+      <p>I love you 3000(more than it)</p>
+      <p class="msg-sig">Te Amodoro Muchisisisisisisisisisisisisimo Mas <3</p>
+      <p>I always hope good for you my dear.</p>
+    </p>
+  </div>
+</section>
+
+<!-- OUR BEAUTIFUL CAT FAMILY ;3 -->
+<section class="wrap">
+  <div class="sec-eyebrow">🐱 Our Beautiful Cat Family</div>
+  <h2 class="sec-title">Our Beautiful Cat Family ;3</h2>
+  <p class="sec-sub">The tiny paws and soft hearts that make life sweeter</p>
+  <div class="photo-grid" style="margin-top: clamp(1rem,3vw,1.5rem);">
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-bloom-01.jpg')"><img src="../s/note-bloom-01.jpg" alt="Bloom cat memory"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-forever-01.jpg')"><img src="../s/note-forever-01.jpg" alt="Forever cat memory"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-smile-01.jpg')"><img src="../s/note-smile-01.jpg" alt="Smile cat memory"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/mona.jpeg')"><img src="../s/mona.jpeg" alt="Mona"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/patita.jpeg')"><img src="../s/patita.jpeg" alt="Patita"></div>
+  </div>
+  <div style="text-align:center; margin-top: clamp(1rem,3vw,1.5rem); font-family:'DM Serif Display',serif; color:var(--gold); font-size: clamp(1rem,3vw,1.2rem); line-height:1.8;">
+    Mona<br>Patita<br>Paquito<br>Isamu<br>Dona<br>Mihita
+  </div>
+</section>
+
+<!-- OUR BEAUTIFUL MEMORIES TOGETHER -->
+<section class="wrap">
+  <div class="sec-eyebrow">💖 Our Beautiful Memories</div>
+  <h2 class="sec-title">Our Beautiful Memories Together</h2>
+  <p class="sec-sub">Every little moment, forever cherished</p>
+  <div class="photo-grid" style="margin-top: clamp(1rem,3vw,1.5rem);">
+    <div class="photo-card" onclick="openPhotoGallery('../s/j2.jpeg')"><img src="../s/j2.jpeg" alt="Memory 2"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-01.jpg')"><img src="../s/note-01.jpg" alt="Note memory 1"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-011.jpg')"><img src="../s/note-011.jpg" alt="Note memory 2"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-012.jpg')"><img src="../s/note-012.jpg" alt="Note memory 3"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-014.jpg')"><img src="../s/note-014.jpg" alt="Note memory 4"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-019.jpg')"><img src="../s/note-019.jpg" alt="Note memory 5"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-02.jpg')"><img src="../s/note-02.jpg" alt="Note memory 6"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-022.jpg')"><img src="../s/note-022.jpg" alt="Note memory 7"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-023.jpg')"><img src="../s/note-023.jpg" alt="Note memory 8"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-025.jpg')"><img src="../s/note-025.jpg" alt="Note memory 9"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-026.jpg')"><img src="../s/note-026.jpg" alt="Note memory 10"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-027.jpg')"><img src="../s/note-027.jpg" alt="Note memory 11"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-028.jpg')"><img src="../s/note-028.jpg" alt="Note memory 12"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-029.jpg')"><img src="../s/note-029.jpg" alt="Note memory 13"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-031.jpg')"><img src="../s/note-031.jpg" alt="Note memory 14"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-034.jpg')"><img src="../s/note-034.jpg" alt="Note memory 15"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-035.jpg')"><img src="../s/note-035.jpg" alt="Note memory 16"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-036.jpg')"><img src="../s/note-036.jpg" alt="Note memory 17"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-040.jpg')"><img src="../s/note-040.jpg" alt="Note memory 18"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-041.jpg')"><img src="../s/note-041.jpg" alt="Note memory 19"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-042.jpg')"><img src="../s/note-042.jpg" alt="Note memory 20"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-043.jpg')"><img src="../s/note-043.jpg" alt="Note memory 21"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-056.jpg')"><img src="../s/note-056.jpg" alt="Note memory 22"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-057.jpg')"><img src="../s/note-057.jpg" alt="Note memory 23"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-058.jpg')"><img src="../s/note-058.jpg" alt="Note memory 24"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-059.jpg')"><img src="../s/note-059.jpg" alt="Note memory 25"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-06.jpg')"><img src="../s/note-06.jpg" alt="Note memory 26"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-09.jpg')"><img src="../s/note-09.jpg" alt="Note memory 27"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-10.jpg')"><img src="../s/note-10.jpg" alt="Note memory 28"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-funny-01.jpg')"><img src="../s/note-funny-01.jpg" alt="Funny memory"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/note-hug-01.jpg')"><img src="../s/note-hug-01.jpg" alt="Hug memory"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/WhatsApp Image 2026-07-17 at 1.54.25 PM (1).jpeg')"><img src="../s/WhatsApp Image 2026-07-17 at 1.54.25 PM (1).jpeg" alt="WhatsApp memory 1"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/WhatsApp Image 2026-07-17 at 1.54.25 PM.jpeg')"><img src="../s/WhatsApp Image 2026-07-17 at 1.54.25 PM.jpeg" alt="WhatsApp memory 2"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/WhatsApp Image 2026-07-17 at 1.54.26 PM (2).jpeg')"><img src="../s/WhatsApp Image 2026-07-17 at 1.54.26 PM (2).jpeg" alt="WhatsApp memory 3"></div>
+    <div class="photo-card" onclick="openPhotoGallery('../s/WhatsApp Image 2026-07-17 at 1.54.29 PM.jpeg')"><img src="../s/WhatsApp Image 2026-07-17 at 1.54.29 PM.jpeg" alt="WhatsApp memory 4"></div>
+  </div>
+</section>
+
+<!-- NEXT CHAPTER -->
+<section class="wrap" style="text-align:center;">
+  <a href="chapter4.html" style="
+    display:inline-flex;align-items:center;gap:10px;
+    background:rgba(255,255,255,0.08);
+    border:1px solid var(--rose-glow);
+    color:var(--rose);
+    font-family:'Jost',sans-serif;
+    font-size:clamp(11px,2.8vw,13px);
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    padding:12px 28px;
+    border-radius:100px;
+    text-decoration:none;
+    transition:background .3s,border-color .3s,transform .3s;
+    backdrop-filter:blur(8px);
+  " onmouseover="this.style.background='rgba(244,158,196,0.15)';this.style.borderColor='var(--rose)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255,255,255,0.08)';this.style.borderColor='var(--rose-glow)';this.style.transform='translateY(0)'">
+    Continue to Chapter 4 →
+  </a>
+</section>
+
+<!-- FOOTER -->
+<section class="footer">
+  <div class="foot-heart">💘</div>
+  <div class="foot-msg">Forever Yours</div>
+  <div class="foot-sub">Vin & Sumiko | Chapter 3 | 101 Days of Forever</div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lb" id="lightbox">
+  <img id="lbImg" src="" alt="">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+</div>
+
+<script>
+// MUSIC PLAYER
+const songVideoId3 = 'qsB2S4cuVOA';
+let musicPlayer3;
+let musicPlayerReady3 = false;
+let pendingPlay3 = false;
+let isPlaying = false;
+
+function setMusicState3(state) {
+  const playBtn = document.getElementById('playBtn3');
+  const musicBars = document.getElementById('musicBars3');
+  const songArtist = document.getElementById('songArtist3');
+
+  isPlaying = state === 'playing';
+  playBtn.textContent = isPlaying ? '⏸' : '▶';
+  playBtn.setAttribute('aria-pressed', String(isPlaying));
+  playBtn.setAttribute('aria-label', `${isPlaying ? 'Pause' : 'Play'} Can't Help Falling in Love`);
+  musicBars.classList.toggle('paused', !isPlaying);
+
+  if (state === 'loading') {
+    songArtist.textContent = 'Loading Elvis Presley…';
+  } else if (state === 'error') {
+    songArtist.textContent = 'Playback unavailable — try again';
+  } else {
+    songArtist.textContent = 'Elvis Presley';
+  }
+}
+
+function onYouTubeIframeAPIReady() {
+  musicPlayer3 = new YT.Player('youtubePlayer3', {
+    width: '1',
+    height: '1',
+    videoId: songVideoId3,
+    host: 'https://www.youtube-nocookie.com',
+    playerVars: {
+      autoplay: 0,
+      controls: 0,
+      loop: 1,
+      playlist: songVideoId3,
+      playsinline: 1
+    },
+    events: {
+      onReady: () => {
+        musicPlayerReady3 = true;
+        if (pendingPlay3) {
+          pendingPlay3 = false;
+          musicPlayer3.playVideo();
+        }
+      },
+      onStateChange: (event) => {
+        if (event.data === YT.PlayerState.PLAYING) setMusicState3('playing');
+        if (event.data === YT.PlayerState.PAUSED) setMusicState3('paused');
+      },
+      onError: () => {
+        pendingPlay3 = false;
+        setMusicState3('error');
+      }
+    }
+  });
+}
+
+function loadMusicPlayer3() {
+  if (window.YT && window.YT.Player) {
+    onYouTubeIframeAPIReady();
+    return;
+  }
+
+  const youtubeApi = document.createElement('script');
+  youtubeApi.src = 'https://www.youtube.com/iframe_api';
+  youtubeApi.async = true;
+  youtubeApi.onerror = () => setMusicState3('error');
+  document.head.appendChild(youtubeApi);
+}
+
+loadMusicPlayer3();
+
+// POPPING FLOWERS ON SCROLL
+function createPopFlower(x, y) {
+  const flowers = ['🌹', '🌸', '🌺', '🌻', '🌼'];
+  const flower = flowers[Math.floor(Math.random() * flowers.length)];
+  const popFlower = document.createElement('div');
+  popFlower.className = 'fh3';
+  popFlower.textContent = flower;
+  popFlower.style.left = x + 'px';
+  popFlower.style.top = y + 'px';
+  popFlower.style.setProperty('--fd', (1.5 + Math.random() * 1.5) + 's');
+  document.getElementById('popFlowers').appendChild(popFlower);
+  setTimeout(() => popFlower.remove(), 3000);
+}
+
+let lastFlowerTime = 0;
+window.addEventListener('scroll', () => {
+  const now = Date.now();
+  if (now - lastFlowerTime > 200) {
+    const x = Math.random() * window.innerWidth;
+    const y = window.scrollY + window.innerHeight * 0.6;
+    createPopFlower(x, y);
+    lastFlowerTime = now;
+  }
+});
+
+// FALLING LEAVES
+function createLeaf() {
+  const leaf = document.createElement('div');
+  leaf.className = 'leaf';
+  leaf.textContent = '🍂';
+  leaf.style.left = Math.random() * 100 + '%';
+  leaf.style.top = '-20px';
+  leaf.style.setProperty('--fd', (8 + Math.random() * 8) + 's');
+  document.getElementById('leaves').appendChild(leaf);
+  setTimeout(() => leaf.remove(), 16000);
+}
+setInterval(createLeaf, 1000);
+
+// STARS
+function createStars() {
+  const starsContainer = document.getElementById('stars3');
+  for (let i = 0; i < 50; i++) {
+    const star = document.createElement('div');
+    star.className = 'star3';
+    star.style.width = Math.random() * 2 + 'px';
+    star.style.height = star.style.width;
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.setProperty('--d', (2 + Math.random() * 3) + 's');
+    star.style.setProperty('--o', Math.random() * 0.7 + 0.3);
+    starsContainer.appendChild(star);
+  }
+}
+createStars();
+
+// PHOTO GALLERY CLICK
+function openPhotoGallery(src) {
+  if (src && src !== '📸 Photos coming soon...') {
+    document.getElementById('lbImg').src = src;
+    document.getElementById('lightbox').classList.add('on');
+  }
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('on');
+}
+
+document.addEventListener('click', (e) => {
+  if (e.target.id === 'lightbox') closeLightbox();
+});
+
+// MUSIC PLAYER DISPLAY
+const songs3 = [
+  { title: "Can't Help Falling in Love", artist: "Elvis Presley" }
+];
+let currentSongIndex = 0;
+
+function toggleMusic3() {
+  if (isPlaying) {
+    musicPlayer3.pauseVideo();
+    setMusicState3('paused');
+  } else {
+    pendingPlay3 = true;
+    setMusicState3('loading');
+
+    if (musicPlayerReady3) {
+      pendingPlay3 = false;
+      musicPlayer3.playVideo();
+    }
+  }
+}
+
+function updateSongDisplay() {
+  const song = songs3[currentSongIndex];
+  document.getElementById('songTitle3').textContent = song.title;
+  document.getElementById('songArtist3').textContent = song.artist;
+}
+</script>
+
+</body>
+</html>
